@@ -15,10 +15,12 @@ export default function Chatbots() {
       </div>
       <div className="w-full grid grid-cols-2 md:grid-cols-4 mt-8 gap-4">
         <ChatbotCard name="Elon Musk" image="/elon.jpeg"></ChatbotCard>
-        <ChatbotCard name="Elon Musk" image="/elon.jpeg"></ChatbotCard>
-        <ChatbotCard name="Elon Musk" image="/elon.jpeg"></ChatbotCard>
-        <ChatbotCard name="Elon Musk" image="/elon.jpeg"></ChatbotCard>
-        <ChatbotCard name="Elon Musk" image="/elon.jpeg"></ChatbotCard>
+        <ChatbotCard name="Mark Zuckerberg" image="/mark.jpeg"></ChatbotCard>
+        <ChatbotCard name="Sam Altman" image="/sam.jpeg"></ChatbotCard>
+        <ChatbotCard name="Mira Murati" image="/miramurati.jpeg"></ChatbotCard>
+        <ChatbotCard name="Vitalik Buterin" image="/vitalik.jpeg"></ChatbotCard>
+        <ChatbotCard name="Warren Buffet" image="/warren.jpeg"></ChatbotCard>
+
       </div>
      
     </main>
