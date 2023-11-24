@@ -37,8 +37,8 @@ export default function Editor() {
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 overflow-auto bg-[#34343480] flex">
-          <div className="relative p-8 bg-white md:w-full max-w-md m-auto flex-col flex rounded-lg">
+        <div className="fixed inset-0 z-50 overflow-auto text-black bg-[#34343480] flex">
+          <div className="relative p-8 bg-white  md:w-full max-w-md m-auto flex-col flex rounded-lg">
             <div>
               <div className="flex justify-between items-center pb-3">
                 <p className="text-2xl font-bold">Create new document</p>

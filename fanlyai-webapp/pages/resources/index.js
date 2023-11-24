@@ -27,7 +27,7 @@ export default function Resources() {
       <div className="h-[500px] flex justify-center items-center text-gray-300 text-center opacity-20 text-4xl">You don't have any resources yet</div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 overflow-auto bg-[#34343480] flex">
+        <div className="fixed inset-0 z-50 overflow-auto text-black bg-[#34343480] flex">
           <div className="relative p-8 bg-white md:w-full md:max-w-md m-auto flex-col flex rounded-lg">
             <div>
               <div className="flex justify-between items-center pb-3">
