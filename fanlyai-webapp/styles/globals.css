@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+main {
+  padding: 32px;
+}
+
+.dot {
+  transition: transform 0.2s;
+}

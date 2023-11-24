@@ -5,16 +5,19 @@ const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
 export default function Chatbots() {
   return (
-    <main className={`bg-white h-screen w-full p-8 ${roboto.className}`}>
+    <main className={`bg-[#0f0f0f] md:ml-[300px] ml-[250px] h-screen w-full p-8 ${roboto.className}`}>
 
       <div className="flex w-full justify-between">
-        <p className="text-4xl text-black">Chatbots</p>
+        <p className="text-4xl text-white">Chatbots</p>
         <Link href="/chatbots/add">
-        <button  className="bg-black text-white px-[16px] space-x-4 flex justify-between py-[6px] items-center rounded-2xl">
-          <span>+</span> <span>Add</span>
-        </button></Link>
+        <button
+        className="fixed top-4 right-4 bg-white hover:bg-[#3f3f3f] hover:text-white text-black font-bold py-2 px-4 rounded"
+       
+      >
+        + Add
+      </button></Link>
       </div>
-      <div className="h-[500px] flex justify-center items-center text-gray-300 text-4xl">You don't have any Chatbots yet</div>
+      <div className="h-[500px] flex justify-center items-center opacity-20 text-gray-300 text-center text-4xl">You don't have any Chatbots yet</div>
     </main>
   );
 }
