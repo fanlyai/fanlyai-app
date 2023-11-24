@@ -18,18 +18,18 @@ export default function Add(){
         // Add more options as needed
     ];
     return(
-        <main className=" bg-[#0f0f0f] ml-[250px] md:ml-[300px] text-gray-200 w-full ">
+        <main className=" bg-[#0f0f0f] ml-[80px] md:ml-[300px] text-gray-200 w-full ">
             <p className={`text-4xl  ${roboto.className}`}>Create a Chatbot</p>
             
-            <div className="h-full w-[4px] z-0 bg-white absolute mt-8 ml-[38px]"></div>
+            <div className="h-full md:block hidden w-[4px] z-0 bg-white absolute mt-8 ml-[38px]"></div>
             <Resources></Resources>
-            <div className="h-full w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
+            <div className="h-full  md:block hidden w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
             <Configuration></Configuration>
-            <div className="h-full min-h-[1250px] w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
+            <div className="h-full  md:block hidden min-h-[1250px] w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
             <Customization></Customization>
             
             <Integration></Integration>
-            <div className="w-full flex justify-center items-center">
+            <div className="w-full  flex justify-center items-center">
             <button className={`bg-white rounded-3xl py-2 px-6 text-xl text-black  ${roboto.className}`}>Create</button>
             </div>
            

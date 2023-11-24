@@ -6,7 +6,7 @@ import { IoDocumentsOutline } from "react-icons/io5";
 
 export default function Resources() {
   return (
-    <div className="flex flex-col py-8 px-6 text-gray-300 w-full justify-center items-start">
+    <div className="flex flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
         <div className="h-8 w-8 z-10 bg-white text-black  rounded-full flex justify-center items-center">
           <IoDocumentsOutline size={24}/>

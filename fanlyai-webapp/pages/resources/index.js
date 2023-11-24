@@ -14,7 +14,7 @@ export default function Resources() {
 
   return (
     <div
-      className={`relative md:ml-[300px] bg-[#0f0f0f] ml-[250px] ${roboto.className} h-screen  w-full p-8`}
+      className={`relative md:ml-[300px] bg-[#0f0f0f] ml-[80px] ${roboto.className} h-screen  w-full p-8`}
     >
       {/* Other content of your page */}
       <p className="text-4xl text-white">Resources</p>
@@ -28,7 +28,7 @@ export default function Resources() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-50 overflow-auto bg-[#34343480] flex">
-          <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
+          <div className="relative p-8 bg-white md:w-full md:max-w-md m-auto flex-col flex rounded-lg">
             <div>
               <div className="flex justify-between items-center pb-3">
                 <p className="text-2xl font-bold">Select resource type</p>

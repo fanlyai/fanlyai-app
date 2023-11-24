@@ -42,7 +42,7 @@ export default function Configuration() {
   ];
 
   return (
-    <div className="flex z-10 flex-col py-8 px-6 text-gray-300 w-full justify-center items-start">
+    <div className="flex z-10 flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
         <div className="h-8 z-10 w-8 bg-white text-black  rounded-full flex justify-center items-center">
           <IoDocumentsOutline size={24} />
@@ -53,44 +53,51 @@ export default function Configuration() {
         <p className={`${roboto4.className} text-white py-2`}>
           Choose from the pre-built behaviours
         </p>
-        <div className="flex">
-          <div className="w-full p-4 rounded-2xl flex flex-col min-h-[250px]">
-            <div className="flex flex-col space-y-6">
-              <Select
-                options={options}
-                title="Select a personality"
-                placeholder="Filter your resources..."
-              ></Select>
-              <Select
-                options={options2}
-                title="Select a tone"
-                placeholder="Filter your resources..."
-              ></Select>
-              <div className="pt-12 space-y-5">
+        <div className="flex md:flex-row flex-col">
+          
+            <div className="w-full p-4 rounded-2xl flex flex-col min-h-[250px]">
+              <div className="flex flex-col space-y-6">
                 <Select
-                  options={botopt}
-                  title="Model"
+                  options={options}
+                  title="Select a personality"
                   placeholder="Filter your resources..."
                 ></Select>
                 <Select
-                  options={yesno}
-                  title="Restrict responses to resources content"
+                  options={options2}
+                  title="Select a tone"
                   placeholder="Filter your resources..."
                 ></Select>
-                <Select
-                  options={access}
-                  title="Accessibility"
-                  placeholder="Filter your resources..."
-                ></Select>
+                <div className="pt-12 space-y-5">
+                  <Select
+                    options={botopt}
+                    title="Model"
+                    placeholder="Filter your resources..."
+                  ></Select>
+                  <Select
+                    options={yesno}
+                    title="Restrict responses to resources content"
+                    placeholder="Filter your resources..."
+                  ></Select>
+                  <Select
+                    options={access}
+                    title="Accessibility"
+                    placeholder="Filter your resources..."
+                  ></Select>
+                </div>
               </div>
+              <div className="w-full"></div>
             </div>
-            <div className="w-full"></div>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
-            <p className="py-2 text-gray-400">OR</p>
-            <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
-          </div>
+            <div className="md:flex hidden  flex-col items-center">
+              <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
+              <p className="py-2 text-gray-400">OR</p>
+              <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
+            </div>
+            <div className="flex md:hidden   flex-col items-center">
+              <div className="h-[1px] w-[150px] lg:mx-12 bg-[#606060]"></div>
+              <p className="py-2 text-gray-400">OR</p>
+              <div className="h-[1px] w-[150px] lg:mx-12 bg-[#606060]"></div>
+            </div>
+      
           <div className="w-full p-4 rounded-2xl flex flex-col min-h-[250px]">
             <div className="flex flex-col ">
               <label className="py-2">Custom behaviour</label>
@@ -99,8 +106,8 @@ export default function Configuration() {
                 className="py-[8px] h-[200px] placeholder:text-[#606060] placeholder:text-sm bg-[#343434] text-gray-300 w-full px-4 rounded-2xl border-[1px] border-gray-500 "
               ></textarea>
             </div>
-            <div className="w-full"></div>
           </div>
+          <div className="w-full"></div>
         </div>
       </div>
     </div>

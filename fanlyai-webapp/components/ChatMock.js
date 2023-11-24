@@ -4,7 +4,7 @@ const roboto = Roboto({ weight: "300", subsets: ["latin"] });
 export default function ChatMock() {
   return (
     <div
-      className={`w-full p-4 flex space-x-2 rounded-xl ${roboto.className} bg-[#343434] h-[500px]`}
+      className={`w-full p-4 flex space-x-2 rounded-xl ${roboto.className} bg-[#343434] h-[600px]`}
     >
       <div className="w-1/3 rounded-2xl flex flex-col items-center bg-[#0f0f0f] h-full">
         <div className=" my-4 border border-[#515151] w-[90%] flex rounded-2xl text-sm justify-center items-center px-8 py-1 bg-[#343434] ">

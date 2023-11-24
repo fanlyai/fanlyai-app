@@ -9,7 +9,7 @@ export default function Editor() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <main
-      className={`bg-[#0f0f0f] md:ml-[300px] ml-[250px] h-screen w-full p-8 ${roboto.className}`}
+      className={`bg-[#0f0f0f] md:ml-[300px] ml-[80px] h-screen w-full p-8 ${roboto.className}`}
     >
       <div className="flex w-full justify-between">
         <p className="text-4xl text-white">Vuzz Editor</p>
@@ -24,11 +24,11 @@ export default function Editor() {
         </button>
       </div>
       <div className="w-full h-[500px] p-8 text-white border rounded-lg border-[#3f3f3f]">
-        <div className="flex w-full justify-between">
+        <div className="flex w-full md:text-base text-xs justify-between">
           <p className="w-full pl-4">Name</p>
           <div className="flex w-full justify-around">
             <p>Created On</p>
-            <p>Delete</p>
+            <p className="md:ml-0 ml-4">Delete</p>
           </div>
         </div>
         <div className="w-full h-[1px] bg-[#3f3f3f] my-4"></div>
@@ -38,7 +38,7 @@ export default function Editor() {
       </div>
       {isModalOpen && (
         <div className="fixed inset-0 z-50 overflow-auto bg-[#34343480] flex">
-          <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
+          <div className="relative p-8 bg-white md:w-full max-w-md m-auto flex-col flex rounded-lg">
             <div>
               <div className="flex justify-between items-center pb-3">
                 <p className="text-2xl font-bold">Create new document</p>

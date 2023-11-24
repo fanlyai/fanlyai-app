@@ -5,7 +5,7 @@ const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
 export default function Chatbots() {
   return (
-    <main className={`bg-[#0f0f0f] md:ml-[300px] ml-[250px] h-screen w-full p-8 ${roboto.className}`}>
+    <main className={`bg-[#0f0f0f] md:ml-[300px] ml-[80px] h-screen w-full p-8 ${roboto.className}`}>
 
       <div className="flex w-full justify-between">
         <p className="text-4xl text-white">Chatbots</p>
