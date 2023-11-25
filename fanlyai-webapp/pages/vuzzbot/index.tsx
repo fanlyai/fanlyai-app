@@ -3,7 +3,6 @@ import Image from "next/image";
 import useState from "react-usestateref";
 import { Josefin_Sans, Outfit } from "next/font/google";
 
-
 const manrope = Josefin_Sans({ weight: "400", subsets: ["latin"] });
 const out = Outfit({ weight: "200", subsets: ["latin"] });
 enum Creator {
@@ -27,15 +26,26 @@ const ChatMessage = ({ text, from }: MessageProps) => {
     <div className="z-10">
       {from == Creator.Me && (
         <div className="bg-[#b0b0b080] justify-start relative z-10 p-4 my-4 rounded-lg flex gap-4 items-center whitespace-pre-wrap">
-                   <Image src="/user.png" alt="User" className="rounded-full" width={40} height={40}/>
+          <Image
+            src="/user.png"
+            alt="User"
+            className="rounded-full"
+            width={40}
+            height={40}
+          />
 
           <p className="text-white">{text}</p>
-         
         </div>
       )}
       {from == Creator.Bot && (
         <div className="bg-[#cbcbcb40] p-4 z-10 rounded-lg flex gap-4 items-center whitespace-pre-wrap">
-          <Image src="/robot.png" alt="User" className="bg-black rounded-full" width={40} height={40} />
+          <Image
+            src="/vuzzAIlogo.png"
+            alt="User"
+            className="bg-black rounded-full"
+            width={40}
+            height={40}
+          />
           <p className="text-white">{text}</p>
         </div>
       )}
@@ -68,15 +78,12 @@ const ChatInput = ({ onSend, disabled }: InputProps) => {
         disabled={disabled}
         onKeyDown={(e) => handleKeyDown(e)}
       />
-     
 
       {!disabled && (
         <button
           onClick={() => sendInput()}
           className="p-2 rounded-md text-gray-500 bottom-1.5 right-1"
-        >
-         
-        </button>
+        ></button>
       )}
     </div>
   );
@@ -121,14 +128,18 @@ export default function Home() {
   return (
     <main className="bg-black w-full md:ml-[300px] md:px-36 min-h-screen  bg-cover  mx-auto">
       <div className="w-full flex flex-col items-center justify-center">
-     
-        <Image alt="logo" src="/vuzzAIlogo.png" width={200} height={200}></Image>
-  
+        <Image
+          alt="logo"
+          src="/vuzzAIlogo.png"
+          width={200}
+          height={200}
+        ></Image>
+
         <div className={manrope.className}>
           <div className="text-white text-xl">BETA</div>
         </div>
       </div>
-     
+
       <div className="sticky z-20 top-0 w-full pt-10 px-4">
         <ChatInput
           onSend={(input) => callApi(input)}
