@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Vuzz Social App</title>
+        <title>VuzzAI Tools App</title>
       </Head>
 
       <body>

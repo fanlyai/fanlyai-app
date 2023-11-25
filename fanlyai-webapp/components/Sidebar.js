@@ -41,7 +41,7 @@ export default function Sidebar({ userInfo }) {
 
               <li className="md:block hidden">Chatbots</li>
             </div></Link>
-            <Link href="https://chat.vuzz.app">
+            <Link href="/vuzzbot">
             <div className={sectionStyle('Fanly Chat')} onClick={() => setSection('Fanly Chat')}>
             <IoChatboxOutline  className="text-white"/>
             <li className="md:block hidden">
