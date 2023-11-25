@@ -129,7 +129,6 @@ export default function Home() {
         </div>
       </div>
      
-      <Image src="/ormwhite.png" alt="orm" className="absolute opacity-50 left-[-80px] block z-0 top-20 " width={800} height={300}></Image>
       <div className="sticky z-20 top-0 w-full pt-10 px-4">
         <ChatInput
           onSend={(input) => callApi(input)}

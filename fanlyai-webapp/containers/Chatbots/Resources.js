@@ -1,4 +1,4 @@
-import Input from "@/components/Input";
+import Input from "../../components/Input";
 import { Outfit, Roboto } from "next/font/google";
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 const roboto4 = Roboto({ weight: "400", subsets: ["latin"] });

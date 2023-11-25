@@ -6,6 +6,7 @@ import { GrResources } from "react-icons/gr";
 import { IoMdDocument } from "react-icons/io";
 import { FaBoltLightning } from "react-icons/fa6";
 import Link from "next/link";
+import Image from 'next/image'
 
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "700", subsets: ["latin"] });
@@ -22,11 +23,9 @@ export default function Sidebar({ userInfo }) {
     >
       {/* Logo */}
       <div>
-        <div className="mb-6 flex flex-col justify-center items-center">
+        <div className=" flex flex-col justify-center items-center">
           {/* Replace 'LogoSrc' with your actual logo source */}
-          <p className="  md:text-4xl text-white">
-            Vuzz<span className="text-[#C80FB0]">AI</span>
-          </p>
+         <Image src="/vuzzAIlogo.png" width={100} height={100}></Image>
           <div className="w-full mt-4 bg-slate-800 h-[1px]"></div>
         </div>
 
@@ -34,7 +33,7 @@ export default function Sidebar({ userInfo }) {
         <div
           className={`${roboto.className} text-xl tracking-wide leading-6 text-[#868E96]`}
         >
-          <ul className="space-y-2">
+          <ul className="space-y-2 flex flex-col">
             <Link href="/chatbots">
             <div className={sectionStyle('Chatbots')} onClick={() => setSection('Chatbots')}>
               <FaRobot  className="text-white"/>

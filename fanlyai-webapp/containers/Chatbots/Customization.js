@@ -1,9 +1,9 @@
-import ChatMock from "@/components/ChatMock";
-import ColorPicker from "@/components/ColorPicker";
-import Input from "@/components/Input";
-import Select from "@/components/Select";
-import Switch from "@/components/Switch";
-import UploadAvatar from "@/components/UploadAvatar";
+import ChatMock from "../..//components/ChatMock";
+import ColorPicker from "../..//components/ColorPicker";
+import Input from "../..//components/Input";
+
+import Switch from "../..//components/Switch";
+import UploadAvatar from "../..//components/UploadAvatar";
 import { Outfit, Roboto } from "next/font/google";
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 const roboto4 = Roboto({ weight: "400", subsets: ["latin"] });

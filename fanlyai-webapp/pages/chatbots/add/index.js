@@ -1,11 +1,10 @@
-import Select from "@/components/Select";
-import Input from "@/components/Input";
+
 
 import { Outfit, Roboto } from "next/font/google";
-import Resources from "@/containers/Chatbots/Resources";
-import Configuration from "@/containers/Chatbots/Configuration";
-import Customization from "@/containers/Chatbots/Customization";
-import Integration from "@/containers/Chatbots/Integration";
+import Resources from "../../../containers/Chatbots/Resources";
+import Configuration from "../../../containers/Chatbots/Configuration";
+import Customization from "../../../containers/Chatbots/Customization";
+import Integration from "../../../containers/Chatbots/Integration";
 
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });

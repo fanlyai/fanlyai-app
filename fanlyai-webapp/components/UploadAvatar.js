@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { FaUpload } from 'react-icons/fa';
 
 const UploadAvatar = () => {
-  const [avatar, setAvatar] = useState('/test4.png'); // Replace with your avatar's path
+  const [avatar, setAvatar] = useState('/vuzzAIlogo.png'); // Replace with your avatar's path
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];

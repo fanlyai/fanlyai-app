@@ -1,4 +1,4 @@
-import Switch from "@/components/Switch";
+import Switch from "../..//components/Switch";
 
 import { Outfit, Roboto } from "next/font/google";
 import Image from "next/image";

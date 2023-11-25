@@ -1,6 +1,6 @@
 
 
-import ChatbotCard from "@/components/ChatbotCard";
+import ChatbotCard from "../../components/ChatbotCard";
 import { Outfit, Roboto } from "next/font/google";
 import Link from "next/link";
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });

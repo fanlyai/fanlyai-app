@@ -1,4 +1,4 @@
-import Input from "@/components/Input";
+import Input from "../../components/Input";
 import { Outfit, Roboto } from "next/font/google";
 import Link from "next/link";
 import { useState } from "react";
