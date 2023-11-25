@@ -127,6 +127,10 @@ export default function Home() {
 
   return (
     <main className="bg-black w-full md:ml-[300px] md:px-36 min-h-screen  bg-cover  mx-auto">
+     <div className="flex items-center space-x-2">
+      <div className="">Status</div>
+      <div className="h-4 w-4 bg-green-500 rounded-full"></div>
+      </div>
       <div className="w-full flex flex-col items-center justify-center">
         <Image
           alt="logo"
