@@ -31,7 +31,7 @@ export default function Sidebar({ userInfo }) {
 
         {/* Sections */}
         <div
-          className={`${roboto.className} text-xl tracking-wide leading-6 text-[#868E96]`}
+          className={`${roboto.className} text-xl pt-4 tracking-wide leading-6 text-[#868E96]`}
         >
           <ul className="space-y-2 flex flex-col">
             <Link href="/chatbots">
