@@ -1,4 +1,4 @@
-import Switch from "../..//components/Switch";
+import Switch from "../../components/Switch";
 
 import { Outfit, Roboto } from "next/font/google";
 import Image from "next/image";
@@ -7,7 +7,7 @@ const roboto4 = Roboto({ weight: "400", subsets: ["latin"] });
 import { FaRegEye } from "react-icons/fa6";
 import { TbWorld } from "react-icons/tb";
 
-export default function Integration() {
+const Integration : React.FC = () => {
   return (
     <div className="flex  flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
@@ -22,6 +22,7 @@ export default function Integration() {
         <div className="flex space-x-4 items-center">
           <Image
             src="/vuzzlogo.png"
+            alt="logo"
             width={60}
             height={60}
             className="justify-center items-center rounded-full"
@@ -41,3 +42,5 @@ export default function Integration() {
     </div>
   );
 }
+
+export default Integration

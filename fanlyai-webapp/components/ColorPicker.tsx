@@ -1,10 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SketchPicker } from 'react-color';
 
-const ColorPicker = ({title}) => {
+interface ColorPickerProps{
+  title : string
+}
+
+const ColorPicker: React.FC<ColorPickerProps> = ({title}) => {
   const [color, setColor] = useState('#fff');
   const [showPicker, setShowPicker] = useState(false);
-  const pickerRef = useRef();
+  const pickerRef = useRef<HTMLInputElement>(null);
 
   const handleChangeComplete = (color) => {
     setColor(color.hex);
@@ -18,7 +22,7 @@ const ColorPicker = ({title}) => {
     setShowPicker(true);
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event:any) => {
     if (pickerRef.current && !pickerRef.current.contains(event.target)) {
       setShowPicker(false);
     }

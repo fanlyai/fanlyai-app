@@ -3,7 +3,7 @@ import Link from "next/link";
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
-export default function Chatbots() {
+const Chatbots : React.FC = () => {
   return (
     <main className={`bg-[#0f0f0f] md:ml-[300px] ml-[80px] h-screen w-full p-8 ${roboto.className}`}>
 
@@ -21,3 +21,4 @@ export default function Chatbots() {
     </main>
   );
 }
+export default Chatbots

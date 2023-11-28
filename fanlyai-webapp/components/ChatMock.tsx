@@ -1,7 +1,9 @@
 import { Outfit, Roboto } from "next/font/google";
 import Input from "./Input";
 const roboto = Roboto({ weight: "300", subsets: ["latin"] });
-export default function ChatMock() {
+
+
+const ChatMock = () =>{
   return (
     <div
       className={`w-full p-4 flex space-x-2 rounded-xl ${roboto.className} bg-[#343434] h-[600px]`}
@@ -42,3 +44,5 @@ export default function ChatMock() {
     </div>
   );
 }
+
+export default ChatMock

@@ -5,8 +5,9 @@ import { useState } from "react";
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
-export default function Editor() {
+const Editor: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
   return (
     <main
       className={`bg-[#0f0f0f] md:ml-[300px] ml-[80px] h-screen w-full p-8 ${roboto.className}`}
@@ -15,7 +16,14 @@ export default function Editor() {
         <p className="text-4xl text-white">Vuzz Editor</p>
       </div>
       <div className="my-8 flex space-x-8">
-        <Input placeholder="Search document"></Input>
+        <Input
+          value={selectedValue}
+          onChange={(newValue) => {
+            console.log("Selected value:", newValue);
+            setSelectedValue(newValue); // Update the state with the new value
+          }}
+          placeholder="Search document"
+        ></Input>
         <button
           onClick={() => setIsModalOpen(true)}
           className=" bg-white hover:bg-[#3f3f3f] hover:text-white text-black flex justify-center py-2 items-center px-8 rounded"
@@ -59,22 +67,25 @@ export default function Editor() {
               </div>
 
               <div className="flex gap-4 ">
-                    <Input></Input>
-                    <button
-          
-          className=" bg-[#3f3f3f]  hover:text-white text-white flex justify-center py-1 items-center px-8 rounded"
-        >
-          Add
-        </button>
-
+                <Input
+                  value={selectedValue}
+                  onChange={(newValue) => {
+                    console.log("Selected value:", newValue);
+                    setSelectedValue(newValue); // Update the state with the new value
+                  }}
+                  placeholder="Name your chatbot"
+                ></Input>
+                <button className=" bg-[#3f3f3f]  hover:text-white text-white flex justify-center py-1 items-center px-8 rounded">
+                  Add
+                </button>
               </div>
-              <div>
-             
-              </div>
+              <div></div>
             </div>
           </div>
         </div>
       )}
     </main>
   );
-}
+};
+
+export default Editor;

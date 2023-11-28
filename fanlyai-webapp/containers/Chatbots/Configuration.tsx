@@ -1,10 +1,14 @@
 import Select from "../../components/Select";
 import { Outfit, Roboto } from "next/font/google";
+import { useState } from "react";
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 const roboto4 = Roboto({ weight: "400", subsets: ["latin"] });
 import { IoDocumentsOutline } from "react-icons/io5";
 
 export default function Configuration() {
+  Select.defaultProps = {
+    onChange: () => {}
+  };
   const options = [
     // Add your options here, for example:
 
@@ -40,7 +44,11 @@ export default function Configuration() {
     { value: "protected", label: "Protected" },
   ];
 
+  const [selectedValue, setSelectedValue] = useState(yesno[0].value);
+
+
   return (
+
     <div className="flex z-10 flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
         <div className="h-8 z-10 w-8 bg-white text-black  rounded-full flex justify-center items-center">
@@ -60,27 +68,57 @@ export default function Configuration() {
                   options={options}
                   title="Select a personality"
                   placeholder="Filter your resources..."
+                  onChange={(newValue) => {
+                    console.log("Selected value:", newValue);
+                    setSelectedValue(newValue); // Update the state with the new value
+                  }}
+                  value={selectedValue} // Use the state variable here
+                
                 ></Select>
                 <Select
                   options={options2}
                   title="Select a tone"
                   placeholder="Filter your resources..."
+                  onChange={(newValue) => {
+                    console.log("Selected value:", newValue);
+                    setSelectedValue(newValue); // Update the state with the new value
+                  }}
+                  value={selectedValue} // Use the state variable here
+                
                 ></Select>
                 <div className="pt-12 space-y-5">
                   <Select
                     options={botopt}
                     title="Model"
                     placeholder="Filter your resources..."
+                    onChange={(newValue) => {
+                      console.log("Selected value:", newValue);
+                      setSelectedValue(newValue); // Update the state with the new value
+                    }}
+                    value={selectedValue} // Use the state variable here
+                  
                   ></Select>
                   <Select
                     options={yesno}
                     title="Restrict responses to resources content"
                     placeholder="Filter your resources..."
+                    onChange={(newValue) => {
+                      console.log("Selected value:", newValue);
+                      setSelectedValue(newValue); // Update the state with the new value
+                    }}
+                    value={selectedValue} // Use the state variable here
+                  
                   ></Select>
                   <Select
                     options={access}
                     title="Accessibility"
                     placeholder="Filter your resources..."
+                    onChange={(newValue) => {
+                      console.log("Selected value:", newValue);
+                      setSelectedValue(newValue); // Update the state with the new value
+                    }}
+                    value={selectedValue} // Use the state variable here
+                  
                   ></Select>
                 </div>
               </div>

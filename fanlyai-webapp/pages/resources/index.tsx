@@ -9,7 +9,7 @@ import { FaYoutube } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
-export default function Resources() {
+const Resources: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -87,3 +87,5 @@ export default function Resources() {
     </div>
   );
 }
+
+export default Resources

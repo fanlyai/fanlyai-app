@@ -1,11 +1,27 @@
-export default function Select({ options, defaultValue, onChange, placeholder,title ,value}) {
+
+interface SelectOption {
+  value: string;
+  label: string;
+}
+
+interface SelectProps {
+  options: SelectOption[];
+  defaultValue?: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  title: string;
+  value: string;
+}
+
+
+const Select: React.FC<SelectProps> = ({ options, defaultValue, onChange, placeholder,title ,value}) => {
     return (
       <div className="relative flex flex-col">
         <label className="p-2">{title}</label>
         <select
           className="block appearance-none placeholder:text-gray-200 w-full bg-[#343434] text-gray-300 hover:border-gray-500 px-4 py-[6px] pr-8 rounded-2xl shadow leading-tight focus:outline-none focus:shadow-outline"
           defaultValue={defaultValue}
-          onChange={onChange}
+          onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           value={value}
         >
@@ -25,3 +41,4 @@ export default function Select({ options, defaultValue, onChange, placeholder,ti
     );
   }
   
+export default Select
