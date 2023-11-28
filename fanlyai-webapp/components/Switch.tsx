@@ -1,7 +1,12 @@
 // Import useState hook from React
 import { useState } from 'react';
 
-const Switch = ({title,desc}) => {
+interface SwitchProps{
+  title:string,
+  desc:string
+}
+
+const Switch: React.FC<SwitchProps> = ({title,desc}) => {
   const [isEnabled, setIsEnabled] = useState(false);
 
   const toggleSwitch = () => {

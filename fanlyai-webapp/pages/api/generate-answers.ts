@@ -28,11 +28,10 @@ export default async function handler(
     return new Response("Please send your prompt", { status: 400 });
   }
   const aiResult = await openai.createChatCompletion({
-   model: "gpt-3.5-turbo-1106",
+
+    model: "gpt-3.5-turbo-1106",
     messages:[{ role: "user", content:`${prompt}` }] ,
     temperature: 0,
-   
-    
   });
 
   const response = aiResult.data.choices[0].message?.content || "There is problem";

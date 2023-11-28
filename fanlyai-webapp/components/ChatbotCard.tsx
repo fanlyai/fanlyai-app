@@ -1,7 +1,13 @@
 import Image from "next/image";
 
+interface ChatbotsProps{
+  image :string,
+  name: string
 
-export default function CharbotCard({ image, name }) {
+}
+
+const ChatbotCard : React.FC<ChatbotsProps> = ({ image, name }) =>
+{
     return (
       <div className="bg-[#3f3f3f] mt-8  transform transition duration-200 hover:scale-105 px-4 py-2 border border-[#575757] rounded-lg flex flex-col items-center">
          <div className="text-white md:text-base text-sm py-2 ">{name}</div>
@@ -12,3 +18,5 @@ export default function CharbotCard({ image, name }) {
       </div>
     );
   }
+
+  export default ChatbotCard

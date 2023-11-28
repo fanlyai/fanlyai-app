@@ -9,13 +9,8 @@ import Integration from "../../../containers/Chatbots/Integration";
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
-export default function Add(){
-    const options = [
-        // Add your options here, for example:
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        // Add more options as needed
-    ];
+const Add: React.FC = () =>{
+ 
     return(
         <main className=" bg-[#0f0f0f] ml-[80px] md:ml-[300px] text-gray-200 w-full ">
             <p className={`text-4xl  ${roboto.className}`}>Create a Chatbot</p>
@@ -35,3 +30,5 @@ export default function Add(){
         </main>
     )
 }
+
+export default Add

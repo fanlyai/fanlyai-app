@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import { useState,ChangeEvent } from 'react';
 import Image from 'next/image';
 import { FaUpload } from 'react-icons/fa';
 
-const UploadAvatar = () => {
-  const [avatar, setAvatar] = useState('/vuzzAIlogo.png'); // Replace with your avatar's path
+const UploadAvatar: React.FC = () => {
+  const [avatar, setAvatar] = useState<string>('/vuzzAIlogo.png'); // Replace with your avatar's path
 
-  const handleAvatarChange = (event) => {
-    const file = event.target.files[0];
+  const handleAvatarChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ? event.target.files[0] : null;
     const reader = new FileReader();
     
     reader.onloadend = () => {
-      setAvatar(reader.result);
+      setAvatar(reader.result as string);
     };
 
     if (file) {
@@ -24,7 +24,7 @@ const UploadAvatar = () => {
       <div className="relative">
         <Image 
           src={avatar} 
-        
+        alt='avatar'
           width={80} 
           height={80} 
           className="rounded-full ml-6 bg-gray-500" 
