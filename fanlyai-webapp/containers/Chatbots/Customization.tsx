@@ -28,7 +28,7 @@ const Customization: React.FC = () => {
               <Input
                 value={selectedValue}
                 onChange={(newValue) => {
-                  console.log("Selected value:", newValue);
+                  console.log("Selected value :", newValue);
                   setSelectedValue(newValue); // Update the state with the new value
                 }}
                 placeholder="Name your chatbot"
