@@ -131,7 +131,7 @@ export default function Sidebar({ userInfo, href, onClick }: SidebarProps) {
           <div className="rounded-full w-12 h-12 bg-blue-400"></div>
           <div className="text-white hidden md:block ml-4">
             <p>{currentUser ? currentUser.email : ""}</p>
-            <p className="text-gray-400 text-sm">{userInfo.email}</p>
+           
           </div>
         </div>
       </div>
