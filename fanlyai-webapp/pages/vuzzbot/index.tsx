@@ -2,6 +2,7 @@
 import Image from "next/image";
 import useState from "react-usestateref";
 import { Josefin_Sans, Outfit } from "next/font/google";
+import { useEffect, useRef } from "react";
 
 const manrope = Josefin_Sans({ weight: "400", subsets: ["latin"] });
 const out = Outfit({ weight: "200", subsets: ["latin"] });
@@ -90,8 +91,14 @@ const ChatInput = ({ onSend, disabled }: InputProps) => {
 };
 
 export default function Home() {
+
+  const bottomChatRef = useRef(null);
   const [messages, setMessages, messagesRef] = useState<MessageProps[]>([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    bottomChatRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   const callApi = async (input: string) => {
     setLoading(true);
@@ -154,7 +161,7 @@ export default function Home() {
         {messages.map((msg: MessageProps) => (
           <ChatMessage key={msg.key} text={msg.text} from={msg.from} />
         ))}
-
+ <div ref={bottomChatRef} />
       </div>
     </main>
   );

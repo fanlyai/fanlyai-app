@@ -26,7 +26,7 @@ interface ButtonProps {
         } ${
           secondary ? "bg-white" : "bg-[#343434]"
         } ${
-          secondary ? "text-black" : "text-white"
+          secondary ? "text-black" : "text-black"
         }${
           secondary ? "border-black" : "bg-[#343434]"
         }${
