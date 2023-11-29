@@ -103,7 +103,7 @@ const Modal: React.FC<ModalProps> = ({
            
             </div>
             <div className="relative p-10 flex-auto">{body}</div>
-            <div className="flex items-center flex-col gap-2 p-4">
+            <div className="flex items-center text-black flex-col gap-2 p-4">
             {isNotShow ? null : <Button
                 disabled={disabled}
                 label={actionLabel}

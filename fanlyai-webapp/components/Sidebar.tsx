@@ -130,7 +130,9 @@ export default function Sidebar({ userInfo, href, onClick }: SidebarProps) {
           {/* You can add an avatar or user icon here */}
           <div className="rounded-full w-12 h-12 bg-blue-400"></div>
           <div className="text-white hidden md:block ml-4">
-            <p>{currentUser ? currentUser.email : ""}</p>
+          <p className="">{currentUser ? currentUser.username : ""}</p>
+            <p className="text-sm text-[#6f6f6f]">{currentUser ? currentUser.email : ""}</p>
+           
            
           </div>
         </div>

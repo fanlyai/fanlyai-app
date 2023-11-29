@@ -28,44 +28,42 @@ interface RequestData {
 }
 
 async function sendAssistantData() {
-  const apiUrl = 'https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants';
+  const apiUrl = "https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants";
   const data = {
     personality: "Expert",
-      tone: "Funny",
-      model: "gpt-4-1106-preview",
-      restrictResponse: false,
-      accessibility: "protected",
-      name: "onur",
-      welcomeMessage: "Hello Onur",
-      chatBotNameColor: "red",
-      chatBotMessageColor: "red",
-      userMessageColor: "red",
-      accentColor: "red",
-      backgroundColor: "red",
-      conversationBackgroundColor: "red",
-      sideBarBackgroundColor: "red",
-      enableEmoji: false,
-      fileId: "",
-      assistantId: "",
-      userId: "",
+    tone: "Funny",
+    model: "gpt-4-1106-preview",
+    restrictResponse: false,
+    accessibility: "protected",
+    name: "onur",
+    welcomeMessage: "Hello Onur",
+    chatBotNameColor: "red",
+    chatBotMessageColor: "red",
+    userMessageColor: "red",
+    accentColor: "red",
+    backgroundColor: "red",
+    conversationBackgroundColor: "red",
+    sideBarBackgroundColor: "red",
+    enableEmoji: false,
+    fileId: "",
+    assistantId: "",
+    userId: "",
   };
 
   try {
     const response = await axios.post(apiUrl, data, {
       headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': 'insomnia/8.4.1',
-        
+        "Content-Type": "application/json",
+        "User-Agent": "insomnia/8.4.1",
+        "Access-Control-Allow-Headers": "*",
       },
-      
     });
 
     console.log(response.data);
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 }
-
 
 /* 
 async function sendPostRequest(apiEndpoint: string, data: RequestData) {
@@ -108,7 +106,7 @@ console.log(data)
   }
 } */
 
-export default function Configuration() {
+export default function Configuration({formik} : {formik:any} ) {
   Select.defaultProps = {
     onChange: () => {},
   };
@@ -131,8 +129,8 @@ export default function Configuration() {
   ];
   const botopt = [
     // Add your options here, for example:
-    { value: "gpt35", label: "GPT-3.5 Turbo" },
-    { value: "gpt4", label: "GPT-4" },
+    { value: "gpt-3.5-turbo-1106", label: "GPT-3.5 Turbo" },
+    { value: "gpt-4-0613", label: "GPT-4" },
 
     // Add more options as needed
   ];
@@ -145,6 +143,13 @@ export default function Configuration() {
     { value: "public", label: "Public" },
     { value: "private", label: "Private" },
     { value: "protected", label: "Protected" },
+  ];
+  const role = [
+    { value: "developer", label: "Developer" },
+    { value: "footballtrainer", label: "Football Trainer" },
+    { value: "musician", label: "Musician" },
+    { value: "math teacher", label: "Math Tutor" },
+ 
   ];
 
   const [selectedValue, setSelectedValue] = useState(yesno[0].value);
@@ -159,41 +164,7 @@ export default function Configuration() {
     setCustom(event.target.value); // Extracting the value from the event
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    const apiEndpoint = "https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants";
-
-    const requestData: RequestData = {
-      personality: "Expert",
-      tone: "Funny",
-      model: "gpt-4-1106-preview",
-      restrictResponse: false,
-      accessibility: "protected",
-      name: "onur",
-      welcomeMessage: "Hello Onur",
-      chatBotNameColor: "red",
-      chatBotMessageColor: "red",
-      userMessageColor: "red",
-      accentColor: "red",
-      backgroundColor: "red",
-      conversationBackgroundColor: "red",
-      sideBarBackgroundColor: "red",
-      enableEmoji: false,
-      fileId: "",
-      assistantId: "",
-      userId: "",
-    };
-
-    try {
-      const response = await sendAssistantData();
-      console.log("Response from API:", response);
-      // Handle the response...
-    } catch (error) {
-      console.error("Failed to send data:", error);
-      // Handle the error...
-    }
-  };
-
+  
   return (
     <div className="flex z-10 flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
@@ -213,33 +184,40 @@ export default function Configuration() {
                 options={options}
                 title="Select a personality"
                 placeholder="Filter your resources..."
-                onChange={(newValue) => {
-                  console.log("Selected value:", newValue);
-                  setPersonality(newValue); // Update the state with the new value
-                }}
-                value={personality} // Use the state variable here
+                id="personality"
+                name="personality"
+                onChange={formik.handleChange}
+                value={formik.values.personality}
               ></Select>
               <Select
                 options={options2}
                 title="Select a tone"
+                id="tone"
+                name="tone"
                 placeholder="Filter your resources..."
-                onChange={(newValue) => {
-                  console.log("Selected value:", newValue);
-                  setTone(newValue); // Update the state with the new value
-                }}
-                value={tone} // Use the state variable here
+                onChange={formik.handleChange}
+                value={formik.values.tone}
               ></Select>
+              <Select
+                  options={role}
+                  title="Role"
+                  placeholder="Select Role"
+                  id="role"
+                  name="role" 
+                  onChange={formik.handleChange}
+                value={formik.values.role}// Use the state variable here
+                ></Select>
               <div className="pt-12 space-y-5">
                 <Select
                   options={botopt}
                   title="Model"
                   placeholder="Filter your resources..."
-                  onChange={(newValue) => {
-                    console.log("Selected value:", newValue);
-                    setModel(newValue); // Update the state with the new value
-                  }}
-                  value={model} // Use the state variable here
+                  id="model"
+                  name="model" 
+                  onChange={formik.handleChange}
+                value={formik.values.model}// Use the state variable here
                 ></Select>
+                  
                 <Select
                   options={yesno}
                   title="Restrict responses to resources content"
@@ -254,11 +232,10 @@ export default function Configuration() {
                   options={access}
                   title="Accessibility"
                   placeholder="Filter your resources..."
-                  onChange={(newValue) => {
-                    console.log("Selected value:", newValue);
-                    setAccesibility(newValue); // Update the state with the new value
-                  }}
-                  value={accessibility} // Use the state variable here
+                  id="accessibility"
+                  name="accessibility" 
+                  onChange={formik.handleChange}
+                value={formik.values.accessibility}// U // Use the state variable here
                 ></Select>
               </div>
             </div>
@@ -284,7 +261,7 @@ export default function Configuration() {
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas dui at libero mollis, sit amet lacinia ligula faucibus. Morbi tortor enim, rutrum ut ex in, tincidunt tempus risus. Nam molestie blandit arcu a ultricies. Interdum et malesuada fames ac ante ipsum primis in faucibus. "
                 className="py-[8px] h-[200px] placeholder:text-[#606060] placeholder:text-sm bg-[#343434] text-gray-300 w-full px-4 rounded-2xl border-[1px] border-gray-500 "
               ></textarea>
-              <button onClick={handleSubmit}>Submit</button>
+             
             </div>
           </div>
           <div className="w-full"></div>

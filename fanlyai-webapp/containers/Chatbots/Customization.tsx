@@ -10,7 +10,7 @@ const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 const roboto4 = Roboto({ weight: "400", subsets: ["latin"] });
 import { FaRegEye } from "react-icons/fa6";
 
-const Customization: React.FC = () => {
+const Customization = ({formik} : {formik:any} ) => {
   const [selectedValue, setSelectedValue] = useState("");
   const [name, setName] = useState("");
   return (
@@ -27,12 +27,18 @@ const Customization: React.FC = () => {
             <div className="flex flex-col space-y-2">
               <label className="py-2">Name your chatbot</label>
               <Input
-                value={selectedValue}
-                onChange={(newValue) => {
-                  console.log("Selected value :", newValue);
-                  setName(newValue); // Update the state with the new value
-                }}
+                 id="name"
+                 name="name" 
+                 onChange={formik.handleChange}
+               value={formik.values.name}
                 placeholder="Name your chatbot"
+              ></Input>
+               <Input
+                 id="description"
+                 name="description" 
+                 onChange={formik.handleChange}
+                value={formik.values.description}
+                placeholder="Description"
               ></Input>
               <div className="flex flex-col ">
                 <label className="py-2">Choose a welcome message</label>

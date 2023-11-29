@@ -14,6 +14,12 @@ const LoginModal = () => {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const [isLoading , setIsloading] = useState(false);
+    const handleEmailChange = (event) => {
+      setEmail(event.target.value); // Update the email state with the new input value
+    };
+    const handlePasswordChange = (event) => {
+      setPassword(event.target.value); // Update the email state with the new input value
+    };
 
     const router = useRouter();
     const onToggle = useCallback(()=>{
@@ -61,7 +67,7 @@ const LoginModal = () => {
     <div className="flex flex-col gap-4">
       <Input
         placeholder="Email"
-        onChange={(e) => setEmail(e)}
+        onChange={handleEmailChange}
         value={email}
         type="text"
        
@@ -69,7 +75,7 @@ const LoginModal = () => {
       <Input
         placeholder="Password"
         type="password"
-        onChange={(e) => setPassword(e)}
+        onChange={handlePasswordChange}
         value={password}
        
       />

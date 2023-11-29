@@ -17,9 +17,21 @@ const RegisterModal = () => {
     const registerModal = useRegisterModal()
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [username,setUsername] = useState("");
     const [isLoading , setIsloading] = useState(false);
 
     const router = useRouter();
+    const handleEmailChange = (event) => {
+      setEmail(event.target.value); // Update the email state with the new input value
+    };
+    const handlePasswordChange = (event) => {
+      setPassword(event.target.value); // Update the email state with the new input value
+    };
+    const handleUsernameChange = (event) => {
+      setUsername(event.target.value); // Update the email state with the new input value
+    };
+  
+  
 
 
     const onToggle = useCallback(()=>{
@@ -38,6 +50,7 @@ const RegisterModal = () => {
             await axios.post('/api/register', {
               email,
               password,
+              username
             });
       
             setIsloading(false)
@@ -48,6 +61,7 @@ const RegisterModal = () => {
               redirect: false,
               email,
               password,
+              username,
             });
 
             console.log(email)
@@ -60,22 +74,30 @@ const RegisterModal = () => {
             setIsloading(false) 
            loginModal.onOpen()
         }
-    },[email,password,registerModal])
+    },[email,password,username,registerModal])
 
     
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Input
         placeholder="Email"
-        onChange={(e) => setEmail(e)}
+        id="email"
+        name="email" 
+        onChange={handleEmailChange}
         value={email}
         type="text"
       />
       <Input
         placeholder="Password"
-        onChange={(e) => setPassword(e)}
+        onChange={handlePasswordChange}
         value={password}
         type="password"
+      />
+      <Input
+        placeholder="Username"
+        onChange={handleUsernameChange}
+        value={username}
+        type="text"
       />
     </div>
   );
