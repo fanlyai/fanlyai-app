@@ -1,13 +1,116 @@
+import axios from "axios";
 import Select from "../../components/Select";
 import { Outfit, Roboto } from "next/font/google";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 const roboto4 = Roboto({ weight: "400", subsets: ["latin"] });
 import { IoDocumentsOutline } from "react-icons/io5";
 
+interface RequestData {
+  personality: string;
+  tone: string;
+  model: string;
+  restrictResponse: boolean;
+  accessibility: string;
+  name: string;
+  welcomeMessage: string;
+  chatBotNameColor: string;
+  chatBotMessageColor: string;
+  userMessageColor: string;
+  accentColor: string;
+  backgroundColor: string;
+  conversationBackgroundColor: string;
+  sideBarBackgroundColor: string;
+  enableEmoji: boolean;
+  fileId: string;
+  assistantId: string;
+  userId: string;
+}
+
+async function sendAssistantData() {
+  const apiUrl = 'https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants';
+  const data = {
+    personality: "Expert",
+      tone: "Funny",
+      model: "gpt-4-1106-preview",
+      restrictResponse: false,
+      accessibility: "protected",
+      name: "onur",
+      welcomeMessage: "Hello Onur",
+      chatBotNameColor: "red",
+      chatBotMessageColor: "red",
+      userMessageColor: "red",
+      accentColor: "red",
+      backgroundColor: "red",
+      conversationBackgroundColor: "red",
+      sideBarBackgroundColor: "red",
+      enableEmoji: false,
+      fileId: "",
+      assistantId: "",
+      userId: "",
+  };
+
+  try {
+    const response = await axios.post(apiUrl, data, {
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'insomnia/8.4.1',
+        
+      },
+      
+    });
+
+    console.log(response.data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+
+/* 
+async function sendPostRequest(apiEndpoint: string, data: RequestData) {
+  try {
+
+    const response = await fetch(
+      "https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants",{
+        method: "POST",
+        mode:"no-cors",
+        headers: {
+          "Content-Type":
+            "multipart/form-data; boundary=---011000010111000001101001",
+          "Access-Control-Allow-Credentials": "true"
+        },
+        body: JSON.stringify(data)
+      }
+      
+    );
+    // const response = await fetch(apiEndpoint, {
+    //   method: 'POST',
+    //   // mode: 'no-cors',
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data; boundary=---011000010111000001101001'
+    //   },
+    //   body: JSON.stringify(data),
+    // });
+console.log(data)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("Error sending POST request:", error.message);
+    } else {
+      console.error("Unknown error sending POST request");
+    }
+    throw error;
+  }
+} */
+
 export default function Configuration() {
   Select.defaultProps = {
-    onChange: () => {}
+    onChange: () => {},
   };
   const options = [
     // Add your options here, for example:
@@ -45,10 +148,53 @@ export default function Configuration() {
   ];
 
   const [selectedValue, setSelectedValue] = useState(yesno[0].value);
+  const [personality, setPersonality] = useState("");
+  const [tone, setTone] = useState("");
+  const [model, setModel] = useState("");
+  const [accessibility, setAccesibility] = useState("");
+  const [name, setName] = useState("");
+  const [custom, setCustom] = useState("");
 
+  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setCustom(event.target.value); // Extracting the value from the event
+  };
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const apiEndpoint = "https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants";
+
+    const requestData: RequestData = {
+      personality: "Expert",
+      tone: "Funny",
+      model: "gpt-4-1106-preview",
+      restrictResponse: false,
+      accessibility: "protected",
+      name: "onur",
+      welcomeMessage: "Hello Onur",
+      chatBotNameColor: "red",
+      chatBotMessageColor: "red",
+      userMessageColor: "red",
+      accentColor: "red",
+      backgroundColor: "red",
+      conversationBackgroundColor: "red",
+      sideBarBackgroundColor: "red",
+      enableEmoji: false,
+      fileId: "",
+      assistantId: "",
+      userId: "",
+    };
+
+    try {
+      const response = await sendAssistantData();
+      console.log("Response from API:", response);
+      // Handle the response...
+    } catch (error) {
+      console.error("Failed to send data:", error);
+      // Handle the error...
+    }
+  };
 
   return (
-
     <div className="flex z-10 flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
         <div className="h-8 z-10 w-8 bg-white text-black  rounded-full flex justify-center items-center">
@@ -61,87 +207,84 @@ export default function Configuration() {
           Choose from the pre-built behaviours
         </p>
         <div className="flex md:flex-row flex-col">
-          
-            <div className="w-full p-4 rounded-2xl flex flex-col min-h-[250px]">
-              <div className="flex flex-col space-y-6">
+          <div className="w-full p-4 rounded-2xl flex flex-col min-h-[250px]">
+            <div className="flex flex-col space-y-6">
+              <Select
+                options={options}
+                title="Select a personality"
+                placeholder="Filter your resources..."
+                onChange={(newValue) => {
+                  console.log("Selected value:", newValue);
+                  setPersonality(newValue); // Update the state with the new value
+                }}
+                value={personality} // Use the state variable here
+              ></Select>
+              <Select
+                options={options2}
+                title="Select a tone"
+                placeholder="Filter your resources..."
+                onChange={(newValue) => {
+                  console.log("Selected value:", newValue);
+                  setTone(newValue); // Update the state with the new value
+                }}
+                value={tone} // Use the state variable here
+              ></Select>
+              <div className="pt-12 space-y-5">
                 <Select
-                  options={options}
-                  title="Select a personality"
+                  options={botopt}
+                  title="Model"
+                  placeholder="Filter your resources..."
+                  onChange={(newValue) => {
+                    console.log("Selected value:", newValue);
+                    setModel(newValue); // Update the state with the new value
+                  }}
+                  value={model} // Use the state variable here
+                ></Select>
+                <Select
+                  options={yesno}
+                  title="Restrict responses to resources content"
                   placeholder="Filter your resources..."
                   onChange={(newValue) => {
                     console.log("Selected value:", newValue);
                     setSelectedValue(newValue); // Update the state with the new value
                   }}
                   value={selectedValue} // Use the state variable here
-                
                 ></Select>
                 <Select
-                  options={options2}
-                  title="Select a tone"
+                  options={access}
+                  title="Accessibility"
                   placeholder="Filter your resources..."
                   onChange={(newValue) => {
                     console.log("Selected value:", newValue);
-                    setSelectedValue(newValue); // Update the state with the new value
+                    setAccesibility(newValue); // Update the state with the new value
                   }}
-                  value={selectedValue} // Use the state variable here
-                
+                  value={accessibility} // Use the state variable here
                 ></Select>
-                <div className="pt-12 space-y-5">
-                  <Select
-                    options={botopt}
-                    title="Model"
-                    placeholder="Filter your resources..."
-                    onChange={(newValue) => {
-                      console.log("Selected value:", newValue);
-                      setSelectedValue(newValue); // Update the state with the new value
-                    }}
-                    value={selectedValue} // Use the state variable here
-                  
-                  ></Select>
-                  <Select
-                    options={yesno}
-                    title="Restrict responses to resources content"
-                    placeholder="Filter your resources..."
-                    onChange={(newValue) => {
-                      console.log("Selected value:", newValue);
-                      setSelectedValue(newValue); // Update the state with the new value
-                    }}
-                    value={selectedValue} // Use the state variable here
-                  
-                  ></Select>
-                  <Select
-                    options={access}
-                    title="Accessibility"
-                    placeholder="Filter your resources..."
-                    onChange={(newValue) => {
-                      console.log("Selected value:", newValue);
-                      setSelectedValue(newValue); // Update the state with the new value
-                    }}
-                    value={selectedValue} // Use the state variable here
-                  
-                  ></Select>
-                </div>
               </div>
-              <div className="w-full"></div>
             </div>
-            <div className="md:flex hidden  flex-col items-center">
-              <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
-              <p className="py-2 text-gray-400">OR</p>
-              <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
-            </div>
-            <div className="flex md:hidden   flex-col items-center">
-              <div className="h-[1px] w-[150px] lg:mx-12 bg-[#606060]"></div>
-              <p className="py-2 text-gray-400">OR</p>
-              <div className="h-[1px] w-[150px] lg:mx-12 bg-[#606060]"></div>
-            </div>
-      
+            <div className="w-full"></div>
+          </div>
+          <div className="md:flex hidden  flex-col items-center">
+            <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
+            <p className="py-2 text-gray-400">OR</p>
+            <div className="h-[150px] w-[1px] lg:mx-12 bg-[#606060]"></div>
+          </div>
+          <div className="flex md:hidden   flex-col items-center">
+            <div className="h-[1px] w-[150px] lg:mx-12 bg-[#606060]"></div>
+            <p className="py-2 text-gray-400">OR</p>
+            <div className="h-[1px] w-[150px] lg:mx-12 bg-[#606060]"></div>
+          </div>
+
           <div className="w-full p-4 rounded-2xl flex flex-col min-h-[250px]">
             <div className="flex flex-col ">
               <label className="py-2">Custom behaviour</label>
               <textarea
+                onChange={handleInputChange}
+                value={custom}
                 placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas dui at libero mollis, sit amet lacinia ligula faucibus. Morbi tortor enim, rutrum ut ex in, tincidunt tempus risus. Nam molestie blandit arcu a ultricies. Interdum et malesuada fames ac ante ipsum primis in faucibus. "
                 className="py-[8px] h-[200px] placeholder:text-[#606060] placeholder:text-sm bg-[#343434] text-gray-300 w-full px-4 rounded-2xl border-[1px] border-gray-500 "
               ></textarea>
+              <button onClick={handleSubmit}>Submit</button>
             </div>
           </div>
           <div className="w-full"></div>

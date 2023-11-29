@@ -9,7 +9,9 @@ import Integration from "../../../containers/Chatbots/Integration";
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
+
 const Add: React.FC = () =>{
+   
  
     return(
         <main className=" bg-[#0f0f0f] ml-[80px] md:ml-[300px] text-gray-200 w-full ">

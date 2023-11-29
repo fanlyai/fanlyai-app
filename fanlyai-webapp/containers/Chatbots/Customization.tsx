@@ -12,6 +12,7 @@ import { FaRegEye } from "react-icons/fa6";
 
 const Customization: React.FC = () => {
   const [selectedValue, setSelectedValue] = useState("");
+  const [name, setName] = useState("");
   return (
     <div className="flex  flex-col py-8 md:px-6 text-gray-300 w-full justify-center items-start">
       <div className="flex justify-start w-full items-center">
@@ -29,7 +30,7 @@ const Customization: React.FC = () => {
                 value={selectedValue}
                 onChange={(newValue) => {
                   console.log("Selected value :", newValue);
-                  setSelectedValue(newValue); // Update the state with the new value
+                  setName(newValue); // Update the state with the new value
                 }}
                 placeholder="Name your chatbot"
               ></Input>

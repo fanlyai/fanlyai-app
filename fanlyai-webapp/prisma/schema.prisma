@@ -24,5 +24,6 @@ model Chatbots {
   asisstantId String
   name        String
   userId      String @db.ObjectId
+  model       String
   user        User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
