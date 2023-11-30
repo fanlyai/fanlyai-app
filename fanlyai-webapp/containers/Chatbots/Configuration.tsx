@@ -149,6 +149,7 @@ export default function Configuration({formik} : {formik:any} ) {
     { value: "footballtrainer", label: "Football Trainer" },
     { value: "musician", label: "Musician" },
     { value: "math teacher", label: "Math Tutor" },
+    { value: "art teacher", label: "Art Teacher" },
  
   ];
 
