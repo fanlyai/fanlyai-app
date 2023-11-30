@@ -62,9 +62,9 @@ const router = useRouter();
 
         <div className="h-full md:block hidden w-[4px] z-0 bg-white absolute mt-8 ml-[38px]"></div>
         <Resources></Resources>
-        <div className="h-full  md:block hidden w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
+        <div className="h-full  md:block hidden  min-h-[1250px] w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
         <Configuration formik={formik}></Configuration>
-        <div className="h-full  md:block hidden min-h-[1250px] w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
+        <div className="h-full  md:block hidden min-h-[1350px] w-[4px] z-0 bg-white absolute  ml-[38px]"></div>
         <Customization formik={formik}></Customization>
 
         <Integration></Integration>
