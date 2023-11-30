@@ -183,7 +183,7 @@ export default function Configuration({formik} : {formik:any} ) {
               <Select
                 options={options}
                 title="Select a personality"
-                placeholder="Filter your resources..."
+                placeholder="Personality"
                 id="personality"
                 name="personality"
                 onChange={formik.handleChange}
@@ -194,14 +194,14 @@ export default function Configuration({formik} : {formik:any} ) {
                 title="Select a tone"
                 id="tone"
                 name="tone"
-                placeholder="Filter your resources..."
+                placeholder="Tone"
                 onChange={formik.handleChange}
                 value={formik.values.tone}
               ></Select>
               <Select
                   options={role}
                   title="Role"
-                  placeholder="Select Role"
+                  placeholder="Role"
                   id="role"
                   name="role" 
                   onChange={formik.handleChange}
@@ -211,7 +211,7 @@ export default function Configuration({formik} : {formik:any} ) {
                 <Select
                   options={botopt}
                   title="Model"
-                  placeholder="Filter your resources..."
+                  placeholder="Model"
                   id="model"
                   name="model" 
                   onChange={formik.handleChange}
@@ -221,7 +221,7 @@ export default function Configuration({formik} : {formik:any} ) {
                 <Select
                   options={yesno}
                   title="Restrict responses to resources content"
-                  placeholder="Filter your resources..."
+                  placeholder="Restrictions"
                   onChange={(newValue) => {
                     console.log("Selected value:", newValue);
                     setSelectedValue(newValue); // Update the state with the new value
@@ -231,7 +231,7 @@ export default function Configuration({formik} : {formik:any} ) {
                 <Select
                   options={access}
                   title="Accessibility"
-                  placeholder="Filter your resources..."
+                  placeholder="Accessibility"
                   id="accessibility"
                   name="accessibility" 
                   onChange={formik.handleChange}

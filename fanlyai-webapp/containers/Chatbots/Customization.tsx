@@ -33,6 +33,7 @@ const Customization = ({formik} : {formik:any} ) => {
                value={formik.values.name}
                 placeholder="Name your chatbot"
               ></Input>
+               <label className="py-2">Description</label>
                <Input
                  id="description"
                  name="description" 
@@ -43,6 +44,7 @@ const Customization = ({formik} : {formik:any} ) => {
               <div className="flex flex-col ">
                 <label className="py-2">Choose a welcome message</label>
                 <textarea
+                disabled={true}
                   placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas dui at libero mollis, sit amet lacinia ligula faucibus. Morbi tortor enim, rutrum ut ex in, tincidunt tempus risus. "
                   className="py-[8px] h-[100px] placeholder:text-[#606060] placeholder:text-sm bg-[#343434] text-gray-300 w-full px-4 rounded-2xl border-[1px] border-gray-500 "
                 ></textarea>

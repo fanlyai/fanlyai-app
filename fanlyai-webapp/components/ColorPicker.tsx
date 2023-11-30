@@ -46,6 +46,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({title}) => {
         />
         <input 
           type="text" 
+          disabled={true}
           value={color} 
           onChange={handleInputChange}
           onFocus={handleFocus}
