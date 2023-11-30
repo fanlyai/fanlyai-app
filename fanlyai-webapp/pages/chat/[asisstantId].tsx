@@ -139,7 +139,7 @@ export default function Chat() {
   };
 
   return (
-    <main className="bg-black w-full md:ml-[300px] md:px-36 min-h-screen  bg-cover  mx-auto">
+    <main className="bg-black w-full md:ml-[300px] ml-[80px] md:px-36 min-h-screen  bg-cover  mx-auto">
       <div className="flex items-center space-x-2">
         <div className="text-white">Status</div>
         <div className="h-4 w-4 bg-green-500 rounded-full"></div>
@@ -157,7 +157,7 @@ export default function Chat() {
         </div>
       </div>
 
-      <div className="sticky z-20 top-0 w-full pt-10 px-4">
+      <div className="sticky z-20 top-0 w-full pt-10 md:px-4">
         <ChatInput
           onSend={(input) => callApi(input)}
           disabled={loading}

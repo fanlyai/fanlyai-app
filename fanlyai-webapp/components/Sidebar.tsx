@@ -119,7 +119,7 @@ export default function Sidebar({ userInfo, href, onClick }: SidebarProps) {
         {currentUser && (
           <div
             onClick={handleLogout}
-            className="text-white w-full flex justify-start text-xl"
+            className={`w-full text-[#868E96] hover:text-white flex p-2 justify-center ${roboto.className}  md:text-xl`}
           >
             Logout
           </div>
