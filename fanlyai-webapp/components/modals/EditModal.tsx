@@ -15,7 +15,7 @@ const EditModal = () => {
   const router = useRouter();
 
   async function getAssistantData() {
-    const apiUrl = `http://localhost:3001/assistants`;
+    const apiUrl = `https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants`;
 
     try {
       const response = await axios.get(apiUrl);
@@ -50,7 +50,7 @@ const EditModal = () => {
 
   const [chatbots, setChatbots] = useState([]);
   async function deleteAssistantData(index : number) {
-    const apiUrl = `http://localhost:3001/assistants/${chatbots[index].assistantId}`;
+    const apiUrl = `https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants/${chatbots[index].assistantId}`;
 
     try {
       const response = await axios.delete(apiUrl);

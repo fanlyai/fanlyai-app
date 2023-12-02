@@ -21,7 +21,7 @@ const Chatbots : React.FC = () => {
   const router = useRouter();
   async function getAssistantData() {
    
-    const apiUrl = `http://localhost:3001/assistants`;
+    const apiUrl = `https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants`;
 
     try {
       const response = await axios.get(apiUrl);
