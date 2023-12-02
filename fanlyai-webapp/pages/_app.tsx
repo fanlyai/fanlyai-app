@@ -6,6 +6,7 @@ import LoginModal from '../components/modals/LoginModal';
 import RegisterModal from '../components/modals/RegisterModal';
 import '../styles/globals.css'
 import type { AppProps } from 'next/app';
+import EditModal from '../components/modals/EditModal';
 
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -20,6 +21,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <div className="flex">
+      <EditModal></EditModal>
       {isIndexPage && <> <LoginModal ></LoginModal>
       <RegisterModal></RegisterModal></>}
      

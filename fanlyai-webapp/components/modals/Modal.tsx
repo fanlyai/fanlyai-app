@@ -14,6 +14,7 @@ interface ModalProps {
   actionLabel: string;
   disabled?: boolean;
   isNotShow?: boolean;
+  
 }
 
 const Modal: React.FC<ModalProps> = ({

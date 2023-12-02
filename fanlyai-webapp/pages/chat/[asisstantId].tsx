@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import useState from "react-usestateref";
-import { Josefin_Sans, Outfit } from "next/font/google";
+
 import { useEffect, useRef } from "react";
 import axios from "axios";
+import { Outfit, Roboto } from "next/font/google";
 import { useParams } from "next/navigation";
+import Link from "next/link";
+const roboto = Roboto({ weight: "300", subsets: ["latin"] });
 
-const manrope = Josefin_Sans({ weight: "400", subsets: ["latin"] });
 const out = Outfit({ weight: "200", subsets: ["latin"] });
 enum Creator {
   Me = 0,
@@ -95,17 +97,22 @@ const ChatInput = ({ onSend, disabled }: InputProps) => {
 export default function Chat() {
   const id = useParams();
   console.log(id);
-
-  async function getAssistantData(message) {
-    const apiUrl = `https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants/start-thread?assistant-id=${id.assistantId}&message=${message}`;
+  const [chatbot,setChatbot] = useState([]);
+  async function getAssistantData() {
+    const apiUrl = `https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants?assistant-id=${id.asisstantId}`;
 
     try {
       const response = await axios.get(apiUrl);
       console.log(response.data);
+      setChatbot(response.data)
     } catch (error) {
       console.error("Error:", error);
     }
   }
+  useEffect(()=>{
+    getAssistantData()
+  },[])
+  
 
   const bottomChatRef = useRef(null);
   const [messages, setMessages, messagesRef] = useState<MessageProps[]>([]);
@@ -139,11 +146,16 @@ export default function Chat() {
   };
 
   return (
-    <main className="bg-black w-full md:ml-[300px] ml-[80px] md:px-36 min-h-screen  bg-cover  mx-auto">
-      <div className="flex items-center space-x-2">
+    <main className={`bg-black w-full md:ml-[300px] ml-[80px] md:px-36 min-h-screen  ${roboto.className} bg-cover  mx-auto`}>
+      <Link href="/chatbots">
+      <button  className=" bg-white text-black rounded-xl px-4 py-2">Go Back</button></Link>
+      <div className="flex items-center w-full justify-end space-x-2">
         <div className="text-white">Status</div>
         <div className="h-4 w-4 bg-green-500 rounded-full"></div>
-      </div>
+       
+      </div> 
+ 
+        
       <div className="w-full flex flex-col items-center justify-center">
         <Image
           alt="logo"
@@ -152,7 +164,7 @@ export default function Chat() {
           height={200}
         ></Image>
 
-        <div className={manrope.className}>
+        <div className={roboto.className}>
           <div className="text-white text-xl">BETA</div>
         </div>
       </div>
