@@ -15,6 +15,7 @@
     "axios": "^1.6.2",
     "bcrypt": "^5.1.1",
     "formik": "^2.4.5",
+    "iron-session": "^8.0.1",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
     "openai": "^3.3.0",

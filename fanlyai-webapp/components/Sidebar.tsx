@@ -10,6 +10,7 @@ import Image from "next/image";
 import useCurrentUser from "../hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
+import useSession from "../hooks/useSession";
 
 const outfit = Outfit({ weight: "200", subsets: ["latin"] });
 const roboto = Roboto({ weight: "700", subsets: ["latin"] });
@@ -26,13 +27,16 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ userInfo, href, onClick }: SidebarProps) {
-  const { data: currentUser } = useCurrentUser();
+  const {logout, session} = useSession()
   const [section, setSection] = useState<string>("");
 
   const router = useRouter();
+
   const handleLogout = () =>{
-   signOut({callbackUrl:"/"})
+   logout()
+   router.push("/")
   }
+  console.log(session.username)
 
   const sectionStyle = (currentSection) =>
     `flex space-x-3 cursor-pointer items-center hover:bg-gray-800 px-[10px] py-[12px] rounded-xl hover:text-white ${
@@ -116,22 +120,22 @@ export default function Sidebar({ userInfo, href, onClick }: SidebarProps) {
       {/* User Info */}
       <div className=" cursor-pointer">
        
-        {currentUser && (
+       
           <div
             onClick={handleLogout}
             className={`w-full text-[#868E96] hover:text-white flex p-2 justify-center ${roboto.className}  md:text-xl`}
           >
             Logout
           </div>
-        )}
+        
         <div className="w-full  mb-4 bg-slate-800 h-[1px]"></div>
 
         <div className="flex  items-center">
           {/* You can add an avatar or user icon here */}
           <div className="rounded-full w-12 h-12 bg-blue-400"></div>
           <div className="text-white hidden md:block ml-4">
-          <p className="">{currentUser ? currentUser.username : ""}</p>
-            <p className="text-sm text-[#6f6f6f]">{currentUser ? currentUser.email : ""}</p>
+          <p className="">{session.username}</p>
+           {/*  <p className="text-sm text-[#6f6f6f]">{currentUser ? currentUser.email : ""}</p> */}
            
            
           </div>

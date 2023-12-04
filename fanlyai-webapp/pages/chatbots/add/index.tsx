@@ -41,13 +41,14 @@ const router = useRouter();
     },
   });
   
-
   async function sendAssistantData(queryParams: any) {
     const queryString = new URLSearchParams(queryParams).toString();
     const apiUrl = `https://vuzz-api-oxkf4xsofa-lm.a.run.app/assistants?${queryString}`;
 
     try {
-      const response = await axios.post(apiUrl);
+      const response = await axios.post(apiUrl,{},{
+       
+      });
       console.log(response.data);
       router.push("/chatbots")
     } catch (error) {
