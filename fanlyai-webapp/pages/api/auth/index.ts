@@ -23,8 +23,7 @@ export default async function handler(
       password: string;
     };
     try {
-      const response = await axios.post("http://localhost:3001/auth/login", {
-
+      const response = await axios.post("https://vuzz-api-oxkf4xsofa-lm.a.run.app/auth/login", {
         username,
         password,
       });

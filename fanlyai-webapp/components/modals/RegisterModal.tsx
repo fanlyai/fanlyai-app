@@ -47,7 +47,7 @@ const RegisterModal = () => {
             setIsloading(true)
             console.log(email)
             console.log(password)
-            await axios.post('http://localhost:3001/auth/register', {
+            await axios.post('https://vuzz-api-oxkf4xsofa-lm.a.run.app/auth/register', {
               email,
               password,
               username
