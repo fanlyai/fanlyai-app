@@ -36,7 +36,7 @@ export default function Sidebar({ userInfo, href, onClick }: SidebarProps) {
    logout()
    router.push("/")
   }
-  console.log(session.username)
+ 
 
   const sectionStyle = (currentSection) =>
     `flex space-x-3 cursor-pointer items-center hover:bg-gray-800 px-[10px] py-[12px] rounded-xl hover:text-white ${

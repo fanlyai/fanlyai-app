@@ -14,7 +14,6 @@ export default async function handler(
   const session = await getIronSession<SessionData>(req, res, sessionOptions);
   if (req.method === "POST") {
     const {
-     
       username = "",
       password = "",
     } = (await req.body) as {
@@ -28,18 +27,20 @@ export default async function handler(
         password,
       });
       const accessToken = response.data.access_token;
-      session.isLoggedIn = true;
+    
       const usernameData = response.data.username;
       
       session.username = usernameData;
-      session.token = accessToken;
-      await session.save();
+      session.token = accessToken;  
+      session.isLoggedIn = true;
+      await session.save(); 
       res.status(200).json(session);
     } catch (error) {
       console.error("Login error:", error);
       session.isLoggedIn = false;
-      await session.save();
-      res.status(200).json(defaultSession);
+     
+      res.status(403).json(defaultSession);
+ 
     }
    
     return;

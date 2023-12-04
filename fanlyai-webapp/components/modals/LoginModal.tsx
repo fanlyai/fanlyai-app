@@ -10,19 +10,19 @@ import axios from "axios";
 import useSession from "../../hooks/useSession";
 
 const LoginModal = () => {
-  const { login, session , isLoading} = useSession();
+  const { login, session, isLoading } = useSession();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleUsernameChange = (event) => {
     setUsername(event.target.value); // Update the email state with the new input value
   };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value); // Update the email state with the new input value
   };
- 
+
   const router = useRouter();
   const onToggle = useCallback(() => {
     if (isLoading) {
@@ -33,21 +33,23 @@ const LoginModal = () => {
   }, [isLoading, loginModal, registerModal]);
 
   const onSubmit = async () => {
-
-      login({
-        password: password ,
+    try {
+    const res =  await login({
+        password: password,
         username: username,
-      }).then(()=>{ console.log("in then")
-        if(session.username !== ""){
-          toast.success("Succesful")
-           router.push("/chatbots")
-        }
-        else{
-          toast.error("Invalid Credentials")
-          router.push("/")
-        }   
-      })
-      
+      });
+     if(res.token !== ""){
+      toast.success("Successfully logged in");
+        router.push("/chatbots");
+     }
+     else {
+      toast.error("Invalid username or password");
+     }
+     
+    } catch (error) {
+      toast.error("Invalid username or password");
+      router.push("/");
+    }
   };
 
   const bodyContent = (

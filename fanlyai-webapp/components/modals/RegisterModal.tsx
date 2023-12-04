@@ -10,10 +10,9 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 
-
-
 const RegisterModal = () => {
   const loginModal = useLoginModal()
+
     const registerModal = useRegisterModal()
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -67,7 +66,8 @@ const RegisterModal = () => {
             console.log(error)
         }finally{
             setIsloading(false) 
-           loginModal.onOpen()
+            router.reload();
+            loginModal.onOpen()
         }
     },[email,password,username,registerModal])
 
