@@ -47,7 +47,7 @@ const RegisterModal = () => {
             setIsloading(true)
             console.log(email)
             console.log(password)
-            await axios.post('/api/register', {
+            await axios.post('http://localhost:3001/auth/register', {
               email,
               password,
               username
@@ -57,14 +57,9 @@ const RegisterModal = () => {
       
             toast.success('Account created.');
       
-            signIn('credentials', {
-              redirect: false,
-              email,
-              password,
-              username,
-            });
-
             console.log(email)
+            console.log(username)
+
             console.log(password)
       
             registerModal.onClose()
@@ -87,18 +82,19 @@ const RegisterModal = () => {
         value={email}
         type="text"
       />
+         <Input
+        placeholder="Username"
+        onChange={handleUsernameChange}
+        value={username}
+        type="text"
+      />
       <Input
         placeholder="Password"
         onChange={handlePasswordChange}
         value={password}
         type="password"
       />
-      <Input
-        placeholder="Username"
-        onChange={handleUsernameChange}
-        value={username}
-        type="text"
-      />
+   
     </div>
   );
 
